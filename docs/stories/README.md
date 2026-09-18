@@ -6,5 +6,6 @@
 - [Symlinks](symlinks.md)
 - [Hardlinks](hardlinks.md)
 - [Multi-client](multi-client.md)
+- [Rename, unlink, and find](rename-and-find.md)
 
 Design: [plan.md](../plan.md). Board: [status.md](../status.md). Prompt: [task.md](../task.md).

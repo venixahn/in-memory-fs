@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Hardlinks](stories/hardlinks.md) is merged to `develop`. Next: [Multi-client](stories/multi-client.md). `readdir` / `rename` / `unlink` / `find` are still outstanding.
+**Status:** [Multi-client](stories/multi-client.md) is merged to `develop`. Next: [Rename, unlink, and find](stories/rename-and-find.md).
 
 Source of requirements: [task.md](task.md).
 
@@ -62,6 +62,7 @@ Stories:
 4. [Symlinks](stories/symlinks.md) (`feature/symlinks`)
 5. [Hardlinks](stories/hardlinks.md) (`feature/hardlinks`)
 6. [Multi-client](stories/multi-client.md) (`feature/multi-client`)
+7. [Rename, unlink, and find](stories/rename-and-find.md) (`feature/rename-and-find`)
 
 ```ts
 describe('navigate directories', function () {

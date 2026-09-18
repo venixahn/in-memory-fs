@@ -29,6 +29,7 @@ type Stat = {
 
 type Shell = {
   getcwd(): string
+  readdir(path?: string): string[]
   chdir(path: string): Shell
   mkdir(path: string): Shell
   rmdir(path: string): Shell
@@ -241,10 +242,25 @@ const statAt = (cwd: Dentry, path: string): Stat => ({
   kind: walkFrom(cwd, path, true, 0).inode.kind,
 })
 
+const readdirAt = (cwd: Dentry, path: string): string[] => {
+  const dentry = walkFrom(cwd, path, true, 0)
+  if (dentry.inode.kind !== 'dir') {
+    throw new FsError('ENOTDIR')
+  }
+  const names: string[] = []
+  for (const name of dentry.inode.children.keys()) {
+    if (!name.startsWith('.')) {
+      names.push(name)
+    }
+  }
+  return names
+}
+
 function connect (fs: FileSystem): Shell {
   const proc: Process = { cwd: fs.root }
   const sh: Shell = {
     getcwd: () => pathOf(proc.cwd),
+    readdir: (path = '.') => readdirAt(proc.cwd, path),
     chdir (path) {
       proc.cwd = chdirTo(proc.cwd, path)
       return sh

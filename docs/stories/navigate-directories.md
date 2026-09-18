@@ -14,6 +14,6 @@ Done:
 
 Not in this merge:
 
-- `mkdir`, `chdir`, `readdir`, `rmdir` (`mkdir` / `chdir` / `rmdir` now exist on [Errors and paths](error-and-paths.md); `readdir` is still open)
+- `mkdir`, `chdir`, `readdir`, `rmdir` (`mkdir` / `chdir` / `rmdir` now exist on [Errors and paths](error-and-paths.md); `readdir` is on [Multi-client](multi-client.md))
 
 Next story: [File contents](file-contents.md).
