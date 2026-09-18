@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** `feature/file-contents` is in progress (`creat`, `writeFile`, `readFile`). `getcwd` is on `develop`. `mkdir` / `chdir` / `readdir` / `rmdir` are still outstanding.
+**Status:** [File contents](stories/file-contents.md) is merged to `develop` (`creat`, `writeFile`, `readFile`). Next: [Errors and paths](stories/error-and-paths.md). `mkdir` / `chdir` / `readdir` / `rmdir` / `rename` / `unlink` / `find` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
@@ -56,12 +56,12 @@ Outside-in. Write the behavior as a Vitest `describe` / `it` first, implement un
 
 Stories:
 
-1. `feature/navigate-directories` — cwd `/`, mkdir, chdir, readdir, rmdir
-2. `feature/file-contents` — creat, write, read, rename, unlink, find
-3. `feature/error-and-paths` — errno and Unix path cases
-4. `feature/symlinks`
-5. `feature/hardlinks` — files and directories; cycle rejected
-6. `feature/multi-client` — 500 processes
+1. [Navigate directories](stories/navigate-directories.md) (`feature/navigate-directories`)
+2. [File contents](stories/file-contents.md) (`feature/file-contents`)
+3. [Errors and paths](stories/error-and-paths.md) (`feature/error-and-paths`)
+4. [Symlinks](stories/symlinks.md) (`feature/symlinks`)
+5. [Hardlinks](stories/hardlinks.md) (`feature/hardlinks`)
+6. [Multi-client](stories/multi-client.md) (`feature/multi-client`)
 
 ```ts
 describe('navigate directories', function () {
@@ -91,7 +91,7 @@ Bad: `feat(fs): implement mkdir syscall semantics`
 
 ## Living docs
 
-After each story merge: this file, [status.md](status.md), [README.md](../README.md), [stories/](stories/). Keep [task.md](task.md) as the original prompt.
+Update [plan.md](plan.md), [status.md](status.md), [README.md](../README.md), and the matching file under [stories/](stories/README.md) on **every** code change, not only at merge. Story pages must use markdown links to tests, source, and sibling docs. Keep [task.md](task.md) as the original prompt.
 
 All diagrams are Mermaid.
 

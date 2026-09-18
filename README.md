@@ -4,13 +4,13 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 
 ## Status
 
-**On `feature/file-contents`.** `creat` / `writeFile` / `readFile` are in progress.
+**File contents (`creat` / `writeFile` / `readFile`) are on `develop`.** Next story: [Errors and paths](docs/stories/error-and-paths.md).
 
-| Done            | In progress                      | Next                       |
-| --------------- | -------------------------------- | -------------------------- |
-| `getcwd` is `/` | `creat`, `writeFile`, `readFile` | `rename`, `unlink`, `find` |
+| Done                                       | In progress | Next                 |
+| ------------------------------------------ | ----------- | -------------------- |
+| `getcwd`, `creat`, `writeFile`, `readFile` | —           | errno and Unix paths |
 
-Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md).
+Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md). Stories: [docs/stories/](docs/stories/README.md).
 
 ```mermaid
 flowchart TB
