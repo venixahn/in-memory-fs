@@ -1,13 +1,16 @@
 # Prompt example
 
-Not started. Branch will be `release/1.0`.
+Merged to `develop`.
 
+- Tests: [test/prompt-example.test.ts](../../test/prompt-example.test.ts)
+- Demo: [src/demo.ts](../../src/demo.ts)
 - Board: [status.md](../status.md)
 - Plan: [plan.md](../plan.md)
 - Prompt: [task.md](../task.md)
 - Previous: [Rename, unlink, and find](rename-and-find.md)
+- Next: [Release 1.0](release.md)
 
-Will cover:
+Done:
 
-- The assignment walkthrough as a test
-- `src/demo.ts` so `npm run demo` prints that walkthrough
+- The assignment's school/homework sequence as a test
+- `npm run demo` prints that walkthrough

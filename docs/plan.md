@@ -2,7 +2,8 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Rename, unlink, and find](stories/rename-and-find.md) is merged to `develop`. Next: [Prompt example](stories/prompt-example.md) on `release/1.0`.
+**Status:** [Prompt example](stories/prompt-example.md) is merged to
+`develop`. Next: [Release 1.0](stories/release.md).
 
 Source of requirements: [task.md](task.md).
 
@@ -63,7 +64,8 @@ Stories:
 5. [Hardlinks](stories/hardlinks.md) (`feature/hardlinks`)
 6. [Multi-client](stories/multi-client.md) (`feature/multi-client`)
 7. [Rename, unlink, and find](stories/rename-and-find.md) (`feature/rename-and-find`)
-8. [Prompt example](stories/prompt-example.md) (`release/1.0`)
+8. [Prompt example](stories/prompt-example.md) (`feature/prompt-example`)
+9. [Release 1.0](stories/release.md) (`release/1.0`)
 
 ```ts
 describe('navigate directories', function () {
@@ -111,7 +113,8 @@ flowchart TB
   Inode --> SymlinkTarget["symlink target"]
 ```
 
-- **Inode**: `S_IFREG` / `S_IFDIR` / `S_IFLNK`, `nlink` = number of dentries.
+- **Inode**: file / dir / symlink. File bytes and symlink targets live in
+  `data`. Directory children live on the inode.
 - **Dentry**: a name in a parent pointing at an inode. Hardlinks are extra dentries. Children live on the inode; `..` follows the dentry you `chdir`’d through.
 - **Process**: `connect(fs)` with its own cwd. `getcwd` walks parents. Root’s `..` is itself.
 - Path walk: `/`, `.`, `..`, symlink follow max 40 (`ELOOP`). Do not store `.`/`..` in the child Map. Default `readdir` hides names starting with `.`.
@@ -139,4 +142,10 @@ Errno: `ENOENT`, `EEXIST`, `ENOTDIR`, `EISDIR`, `ENOTEMPTY`, `EINVAL`, `ELOOP`, 
 
 ## Out of scope
 
-Permissions, mounts, devices, `mkdir -p`, rename-overwrite, file descriptors, Promises/mutex.
+TODO, not planned:
+
+- Permissions, mounts, devices
+- `mkdir -p`
+- Rename-overwrite
+- File descriptors
+- Promises / mutex

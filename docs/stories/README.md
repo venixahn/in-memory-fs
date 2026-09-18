@@ -8,5 +8,6 @@
 - [Multi-client](multi-client.md)
 - [Rename, unlink, and find](rename-and-find.md)
 - [Prompt example](prompt-example.md)
+- [Release 1.0](release.md)
 
 Design: [plan.md](../plan.md). Board: [status.md](../status.md). Prompt: [task.md](../task.md).

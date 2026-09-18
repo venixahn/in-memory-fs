@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "demo": "npm run build && node dist/demo.js",
     "test": "node scripts/vitest.mjs run --coverage",
     "test:watch": "node scripts/vitest.mjs",
     "coverage": "node scripts/vitest.mjs run --coverage",
