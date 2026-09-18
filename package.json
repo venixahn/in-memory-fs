@@ -1,0 +1,12 @@
+{
+  "name": "in-memory-fs",
+  "version": "1.0.0",
+  "description": "This is a simplified in memory file system that supports both files and directories",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
