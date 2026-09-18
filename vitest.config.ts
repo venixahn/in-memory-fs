@@ -1,7 +1,17 @@
-import { defineConfig } from 'vitest/config';
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vitest/config'
 
-export default defineConfig({
+const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+
+const config = defineConfig({
+  resolve: {
+    alias: {
+      '@app': path.join(projectRoot, 'src'),
+    },
+  },
   test: {
+    environment: 'node',
     passWithNoTests: true,
     coverage: {
       provider: 'istanbul',
@@ -16,4 +26,6 @@ export default defineConfig({
       },
     },
   },
-});
+})
+
+export default config

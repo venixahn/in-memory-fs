@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** quality harness is on `develop` (uncommitted until you say so). No filesystem behavior yet.
+**Status:** `feature/navigate-directories` merged to `develop` (`getcwd` is `/`). Next: `feature/file-contents`. `mkdir` / `chdir` / `readdir` / `rmdir` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
@@ -11,11 +11,11 @@ Source of requirements: [task.md](task.md).
 Public interface: `createFileSystem()` plus `connect(fs)` returning a **shell handle** with methods. **Mutating commands return `sh` so callers can chain.** Queries return data (chain ends). Internals are plain data (`Inode`, `Dentry`, shared filesystem state) mutated in place so 500 clients can share one table. Not copy-on-write.
 
 ```ts
-const fs = createFileSystem();
-const sh = connect(fs);
+const fs = createFileSystem()
+const sh = connect(fs)
 
-sh.mkdir('school').chdir('school').getcwd(); // "/school"
-sh.chdir('school').writeFile('notes', 'hi');
+sh.mkdir('school').chdir('school').getcwd() // "/school"
+sh.chdir('school').writeFile('notes', 'hi')
 ```
 
 - Return **`sh`**: `mkdir`, `chdir`, `rmdir`, `creat`, `writeFile`, `rename`, `unlink`, `link`, `symlink`.
@@ -64,18 +64,20 @@ Stories:
 6. `feature/multi-client` — 500 processes
 
 ```ts
-describe('navigate directories', () => {
-  it('starts a new process at /', () => {
-    const sh = connect(createFileSystem());
-    expect(sh.getcwd()).toBe('/');
-  });
-
-  it('mkdir then chdir updates getcwd', () => {
-    const sh = connect(createFileSystem());
-    expect(sh.mkdir('school').chdir('school').getcwd()).toBe('/school');
-  });
-});
+describe('navigate directories', function () {
+  it('starts a new process at /', function () {
+    const sh = connect(createFileSystem())
+    expect(sh.getcwd()).toBe('/')
+  })
+})
 ```
+
+## Coding style
+
+- No semicolons. Single quotes. Prettier is the formatter.
+- Named exports at the **bottom** of a file (`export { createFileSystem }`, `export type { Shell }`).
+- Tests use `function () {}`, not arrows (ESLint error).
+- Imports from source use the `@app/` alias (`import { connect } from '@app/index.ts'`), not `../src/...`.
 
 ## Git Flow
 

@@ -1,26 +1,46 @@
-import eslint from '@eslint/js';
-import prettier from 'eslint-config-prettier';
-import sonarjs from 'eslint-plugin-sonarjs';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import eslint from '@eslint/js'
+import prettier from 'eslint-config-prettier'
+import sonarjs from 'eslint-plugin-sonarjs'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-export default tseslint.config(
+const config = tseslint.config(
   {
     ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
   },
   eslint.configs.recommended,
   prettier,
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['**/*.ts'],
     extends: [...tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.eslint.json',
+        project: './tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.node,
       },
+    },
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['./*', '../*'],
+              message: 'Use the @app/ alias',
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -37,4 +57,20 @@ export default tseslint.config(
       'max-nested-callbacks': ['error', 3],
     },
   },
-);
+  {
+    files: ['test/**/*.ts'],
+    rules: {
+      'prefer-arrow-callback': 'off',
+      'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'ArrowFunctionExpression',
+          message: 'Use a normal function in tests, not an arrow',
+        },
+      ],
+    },
+  },
+)
+
+export default config
