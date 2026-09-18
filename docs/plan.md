@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Symlinks](stories/symlinks.md) is merged to `develop`. Next: [Hardlinks](stories/hardlinks.md). `readdir` / `rename` / `unlink` / `find` are still outstanding.
+**Status:** [Hardlinks](stories/hardlinks.md) is in progress on `feature/hardlinks`. [Symlinks](stories/symlinks.md) is on `develop`. `readdir` / `rename` / `unlink` / `find` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
