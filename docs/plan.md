@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** quality harness is on `develop` (uncommitted until you say so). No filesystem behavior yet.
+**Status:** `develop` has the quality harness. `feature/navigate-directories` is in progress: a new process `getcwd()` is `/`. Next: mkdir, chdir, readdir, rmdir.
 
 Source of requirements: [task.md](task.md).
 

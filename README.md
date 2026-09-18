@@ -4,11 +4,11 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 
 ## Status
 
-**Harness on `develop`.** Tooling is going in first. Shell commands (`mkdir`, `chdir`, …) are not implemented yet.
+**On `feature/navigate-directories`.** A new process reports `getcwd()` as `/`. `mkdir` / `chdir` are next.
 
-| Done            | In progress                         | Next                           |
-| --------------- | ----------------------------------- | ------------------------------ |
-| Plan in `docs/` | Git Flow + lint/test/coverage setup | `feature/navigate-directories` |
+| Done                         | In progress     | Next                                 |
+| ---------------------------- | --------------- | ------------------------------------ |
+| Quality harness on `develop` | `getcwd` is `/` | `mkdir`, `chdir`, `readdir`, `rmdir` |
 
 Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md).
 
