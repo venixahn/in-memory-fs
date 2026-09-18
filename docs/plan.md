@@ -2,8 +2,8 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Prompt example](stories/prompt-example.md) is in progress on
-`feature/prompt-example`. Next: [Release 1.0](stories/release.md).
+**Status:** [Prompt example](stories/prompt-example.md) is merged to
+`develop`. Next: [Release 1.0](stories/release.md).
 
 Source of requirements: [task.md](task.md).
 

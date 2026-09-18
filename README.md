@@ -8,13 +8,12 @@ cwd.
 
 ## Status
 
-**In progress:** [Prompt example](docs/stories/prompt-example.md) on
-`feature/prompt-example`. Next: [Release 1.0](docs/stories/release.md)
-(`release/1.0`) after this story merges to `develop`.
+**Stories are on `develop`.** Next: [Release 1.0](docs/stories/release.md)
+on `release/1.0`.
 
-| Done                                      | In progress        | Next    |
-| ----------------------------------------- | ------------------ | ------- |
-| files, errno, links, clients, rename/find | prompt walkthrough | release |
+| Done                                                   | In progress | Next    |
+| ------------------------------------------------------ | ----------- | ------- |
+| files, errno, links, clients, rename/find, walkthrough | —           | release |
 
 Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md).
 Board: [docs/status.md](docs/status.md).

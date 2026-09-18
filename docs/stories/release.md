@@ -1,7 +1,6 @@
 # Release 1.0
 
-Not started. Branch will be `release/1.0` after
-[Prompt example](prompt-example.md) merges to `develop`.
+Not started. Branch will be `release/1.0` from `develop`.
 
 - Board: [status.md](../status.md)
 - Plan: [plan.md](../plan.md)

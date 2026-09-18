@@ -1,6 +1,6 @@
 # Prompt example
 
-In progress on `feature/prompt-example`.
+Merged to `develop`.
 
 - Tests: [test/prompt-example.test.ts](../../test/prompt-example.test.ts)
 - Demo: [src/demo.ts](../../src/demo.ts)
@@ -10,5 +10,7 @@ In progress on `feature/prompt-example`.
 - Previous: [Rename, unlink, and find](rename-and-find.md)
 - Next: [Release 1.0](release.md)
 
-The assignment's school/homework sequence is a test, and `npm run demo`
-prints that walkthrough.
+Done:
+
+- The assignment's school/homework sequence as a test
+- `npm run demo` prints that walkthrough
