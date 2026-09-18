@@ -1,13 +1,14 @@
 # Prompt example
 
-Not started. Branch will be `release/1.0`.
+In progress on `feature/prompt-example`.
 
+- Tests: [test/prompt-example.test.ts](../../test/prompt-example.test.ts)
+- Demo: [src/demo.ts](../../src/demo.ts)
 - Board: [status.md](../status.md)
 - Plan: [plan.md](../plan.md)
 - Prompt: [task.md](../task.md)
 - Previous: [Rename, unlink, and find](rename-and-find.md)
+- Next: [Release 1.0](release.md)
 
-Will cover:
-
-- The assignment walkthrough as a test
-- `src/demo.ts` so `npm run demo` prints that walkthrough
+The assignment's school/homework sequence is a test, and `npm run demo`
+prints that walkthrough.
