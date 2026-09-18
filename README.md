@@ -4,11 +4,11 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 
 ## Status
 
-**Errors and paths are on `develop`.** Next story: [Symlinks](docs/stories/symlinks.md).
+**Symlinks are on `develop`.** Next story: [Hardlinks](docs/stories/hardlinks.md).
 
-| Done                                              | In progress | Next                  |
-| ------------------------------------------------- | ----------- | --------------------- |
-| `getcwd`, `creat`, `writeFile`, `readFile`, errno | —           | `symlink`, `readlink` |
+| Done                                          | In progress | Next   |
+| --------------------------------------------- | ----------- | ------ |
+| `getcwd`, files, errno, `symlink`, `readlink` | —           | `link` |
 
 Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md). Stories: [docs/stories/](docs/stories/README.md).
 

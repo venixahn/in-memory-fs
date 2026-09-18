@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Errors and paths](stories/error-and-paths.md) is merged to `develop`. Next: [Symlinks](stories/symlinks.md). `readdir` / `rename` / `unlink` / `find` are still outstanding.
+**Status:** [Symlinks](stories/symlinks.md) is merged to `develop`. Next: [Hardlinks](stories/hardlinks.md). `readdir` / `rename` / `unlink` / `find` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
