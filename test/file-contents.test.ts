@@ -12,9 +12,4 @@ describe('file contents', function () {
     sh.creat('notes').writeFile('notes', 'hi')
     expect(sh.readFile('notes')).toBe('hi')
   })
-
-  it('reads a missing file as empty', function () {
-    const sh = connect(createFileSystem())
-    expect(sh.readFile('missing')).toBe('')
-  })
 })

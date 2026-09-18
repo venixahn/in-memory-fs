@@ -17,4 +17,4 @@ Done:
 Not in this merge:
 
 - `rename`, `unlink`, `find`
-- Missing files currently read as empty (`ENOENT` is [Errors and paths](error-and-paths.md))
+- Missing files throw `ENOENT` ([Errors and paths](error-and-paths.md))
