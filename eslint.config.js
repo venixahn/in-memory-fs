@@ -11,6 +11,13 @@ export default tseslint.config(
   eslint.configs.recommended,
   prettier,
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['**/*.ts'],
     extends: [...tseslint.configs.recommendedTypeChecked],
     languageOptions: {
