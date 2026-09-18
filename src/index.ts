@@ -1,19 +1,22 @@
-export type FileSystem = {
-  rootPath: '/';
-};
-
-export type Shell = {
-  getcwd(): string;
-};
-
-export function createFileSystem(): FileSystem {
-  return { rootPath: '/' };
+type FileSystem = {
+  rootPath: '/'
 }
 
-export function connect(fs: FileSystem): Shell {
+type Shell = {
+  getcwd(): string
+}
+
+function createFileSystem(): FileSystem {
+  return { rootPath: '/' }
+}
+
+function connect(fs: FileSystem): Shell {
   return {
     getcwd() {
-      return fs.rootPath;
+      return fs.rootPath
     },
-  };
+  }
 }
+
+export type { FileSystem, Shell }
+export { createFileSystem, connect }

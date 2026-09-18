@@ -18,7 +18,7 @@
     "test:watch": "node scripts/vitest.mjs",
     "coverage": "node scripts/vitest.mjs run --coverage",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.eslint.json",
     "format": "prettier --write .",
     "prepare": "husky"
   },
