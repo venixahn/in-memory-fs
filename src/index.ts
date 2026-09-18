@@ -33,6 +33,7 @@ type Shell = {
   mkdir(path: string): Shell
   rmdir(path: string): Shell
   creat(path: string): Shell
+  link(existing: string, path: string): Shell
   symlink(target: string, path: string): Shell
   writeFile(path: string, contents: string): Shell
   readFile(path: string): string
@@ -151,8 +152,27 @@ function parentAndName (
   return { dir, name }
 }
 
+function wouldCycle (source: Inode, destDir: Dentry): boolean {
+  if (source.kind !== 'dir') {
+    return false
+  }
+  let current = destDir
+  while (true) {
+    if (current.inode === source) {
+      return true
+    }
+    if (current.parent === current) {
+      return false
+    }
+    current = current.parent
+  }
+}
+
 const addChild = (cwd: Dentry, path: string, inode: Inode): void => {
   const named = parentAndName(cwd, path)
+  if (wouldCycle(inode, named.dir)) {
+    throw new FsError('EPERM')
+  }
   if (named.dir.inode.children.has(named.name)) {
     throw new FsError('EEXIST')
   }
@@ -161,6 +181,10 @@ const addChild = (cwd: Dentry, path: string, inode: Inode): void => {
     parent: named.dir,
     inode,
   })
+}
+
+const linkAt = (cwd: Dentry, existing: string, path: string): void => {
+  addChild(cwd, path, walkFrom(cwd, existing, false, 0).inode)
 }
 
 function removeDir (cwd: Dentry, path: string): void {
@@ -235,6 +259,10 @@ function connect (fs: FileSystem): Shell {
     },
     creat (path) {
       addChild(proc.cwd, path, createFileInode())
+      return sh
+    },
+    link (existing, path) {
+      linkAt(proc.cwd, existing, path)
       return sh
     },
     symlink (target, path) {
