@@ -6,7 +6,10 @@ import { fileURLToPath } from 'node:url'
 const require = createRequire(import.meta.url)
 const vitestRoot = path.dirname(require.resolve('vitest/package.json'))
 const cli = path.join(vitestRoot, 'vitest.mjs')
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const projectRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+)
 
 const child = spawn(process.execPath, [cli, ...process.argv.slice(2)], {
   stdio: 'inherit',

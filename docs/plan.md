@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [File contents](stories/file-contents.md) is merged to `develop` (`creat`, `writeFile`, `readFile`). Next: [Errors and paths](stories/error-and-paths.md). `mkdir` / `chdir` / `readdir` / `rmdir` / `rename` / `unlink` / `find` are still outstanding.
+**Status:** [Errors and paths](stories/error-and-paths.md) is merged to `develop`. Next: [Symlinks](stories/symlinks.md). `readdir` / `rename` / `unlink` / `find` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
@@ -43,7 +43,7 @@ No `eslint-disable` for these on production code. If path walk or `find` trips a
 
 **Why not Promises?** No disk. One Node thread; a sync call is already atomic. No mutex.
 
-**devDependencies only:** `typescript`, `@types/node`, `vitest`, `@vitest/coverage-istanbul`, `eslint`, `@eslint/js`, `typescript-eslint`, `globals`, `eslint-plugin-sonarjs`, `prettier`, `eslint-config-prettier`, `husky`, `lint-staged`.
+**devDependencies only:** `typescript`, `@types/node`, `vitest`, `@vitest/coverage-istanbul`, `eslint`, `@eslint/js`, `typescript-eslint`, `@stylistic/eslint-plugin`, `globals`, `eslint-plugin-sonarjs`, `prettier`, `eslint-config-prettier`, `husky`, `lint-staged`.
 
 ## Development method: BDD-style tests (Vitest only)
 
@@ -74,10 +74,11 @@ describe('navigate directories', function () {
 
 ## Coding style
 
-- No semicolons. Single quotes. Prettier is the formatter.
+- No semicolons. Single quotes. Wrap at column 80.
+- Space between a function name and its parameter list: `function step (node, part)`.
 - Named exports at the **bottom** of a file (`export { createFileSystem }`, `export type { Shell }`).
-- Tests use `function () {}`, not arrows (ESLint error).
-- Imports from source use the `@app/` alias (`import { connect } from '@app/index.ts'`), not `../src/...`.
+- Small helpers in `src/` are arrow functions. Tests use `function () {}`, not arrows (ESLint error).
+- Imports from tests use the `@app/` alias (`import { connect } from '@app/index.ts'`), not `../src/...`. Files under `src/` import siblings with Node ESM `.js` specifiers so `tsc` can emit.
 
 ## Git Flow
 
