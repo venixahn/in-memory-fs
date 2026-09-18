@@ -1,13 +1,18 @@
 # Multi-client
 
-Not started. Branch will be `feature/multi-client`.
+Merged to `develop`.
 
+- Tests: [test/multi-client.test.ts](../../test/multi-client.test.ts)
+- Implementation: [src/index.ts](../../src/index.ts)
 - Board: [status.md](../status.md)
 - Plan: [plan.md](../plan.md)
 - Prompt: [task.md](../task.md)
 - Previous: [Hardlinks](hardlinks.md)
+- Next: [Rename, unlink, and find](rename-and-find.md)
 
-Will cover:
+Done:
 
-- 500 `connect` handles on one filesystem
-- Shared tree, isolated cwd
+- Many `connect(fs)` shells share one tree
+- Each shell has its own cwd
+- `readdir` lists a directory and hides names starting with `.`
+- 500 shells can each `mkdir` a unique name; a 501st `readdir` sees all of them

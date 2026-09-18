@@ -16,5 +16,5 @@ Done:
 
 Not in this merge:
 
-- `rename`, `unlink`, `find`
+- `rename`, `unlink`, `find` ([Rename, unlink, and find](rename-and-find.md))
 - Missing files throw `ENOENT` ([Errors and paths](error-and-paths.md))

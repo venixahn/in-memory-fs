@@ -1,13 +1,14 @@
 # Status
 
-| Story                                                   | Branch                         | State                                                                    |
-| ------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------ |
-| Quality harness                                         | `develop`                      | done                                                                     |
-| [Navigate directories](stories/navigate-directories.md) | `feature/navigate-directories` | merged (`getcwd` is `/`; readdir still open)                             |
-| [File contents](stories/file-contents.md)               | `feature/file-contents`        | merged (`creat`, `writeFile`, `readFile`; rename/unlink/find still open) |
-| [Errors and paths](stories/error-and-paths.md)          | `feature/error-and-paths`      | merged (errno, `..`, absolute paths; mkdir/chdir/rmdir landed here)      |
-| [Symlinks](stories/symlinks.md)                         | `feature/symlinks`             | merged                                                                   |
-| [Hardlinks](stories/hardlinks.md)                       | `feature/hardlinks`            | merged                                                                   |
-| [Multi-client](stories/multi-client.md)                 | `feature/multi-client`         | next                                                                     |
+| Story                                                   | Branch                         | State                                                               |
+| ------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------- |
+| Quality harness                                         | `develop`                      | done                                                                |
+| [Navigate directories](stories/navigate-directories.md) | `feature/navigate-directories` | merged (`getcwd` is `/`; mkdir/chdir/rmdir/readdir landed later)    |
+| [File contents](stories/file-contents.md)               | `feature/file-contents`        | merged (`creat`, `writeFile`, `readFile`)                           |
+| [Errors and paths](stories/error-and-paths.md)          | `feature/error-and-paths`      | merged (errno, `..`, absolute paths; mkdir/chdir/rmdir landed here) |
+| [Symlinks](stories/symlinks.md)                         | `feature/symlinks`             | merged                                                              |
+| [Hardlinks](stories/hardlinks.md)                       | `feature/hardlinks`            | merged                                                              |
+| [Multi-client](stories/multi-client.md)                 | `feature/multi-client`         | merged                                                              |
+| [Rename, unlink, and find](stories/rename-and-find.md)  | `feature/rename-and-find`      | next                                                                |
 
 See [plan.md](plan.md) and [stories/](stories/README.md). Prompt: [task.md](task.md).
