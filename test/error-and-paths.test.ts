@@ -30,6 +30,12 @@ describe('errors and paths', function () {
     expect(sh.readFile('/notes')).toBe('hi')
   })
 
+  it('creates a directory through an absolute path', function () {
+    const sh = connect(createFileSystem())
+    sh.mkdir('/school')
+    expect(sh.chdir('school').getcwd()).toBe('/school')
+  })
+
   it('treats .. at / as /', function () {
     const sh = connect(createFileSystem())
     sh.creat('notes').writeFile('notes', 'hi')

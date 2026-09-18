@@ -20,6 +20,6 @@ Done:
 - `EINVAL` for `/`, `.`, and `..` as a create name
 - `EPERM` when `rmdir` targets `/`
 - `..` at `/` stays `/`
-- Absolute paths from `/`
+- Absolute paths from `/`, including `mkdir`
 
 `mkdir`, `chdir`, and `rmdir` exist here so those path and errno cases can run. [Navigate directories](navigate-directories.md) still owns `readdir`.

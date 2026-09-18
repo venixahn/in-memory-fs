@@ -126,8 +126,9 @@ flowchart TB
 - `rmdir`: empty directory; `ENOTEMPTY`.
 - `creat`: empty file; `EEXIST` if the name exists.
 - `writeFile` truncates; `readFile` like `cat`; `EISDIR` on a directory.
-- `unlink`: non-directories only (`EISDIR`).
-- `rename`: files and dirs, including across directories; `EEXIST` if the target exists.
+- `unlink`: non-directories only (`EISDIR`). `/` is `EPERM`.
+- `rename`: files and dirs, including across directories; `EEXIST` if the
+  target exists. `/` is `EPERM`.
 - `find`: exact basename under cwd; do not descend symlink dirs.
 
 Errno: `ENOENT`, `EEXIST`, `ENOTDIR`, `EISDIR`, `ENOTEMPTY`, `EINVAL`, `ELOOP`, `EPERM`.

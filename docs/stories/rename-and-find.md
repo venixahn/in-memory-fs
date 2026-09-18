@@ -13,5 +13,6 @@ Merged to `develop`.
 Done:
 
 - `rename` files and directories, including across parents; `EEXIST` if the target exists
-- `unlink` non-directories (`EISDIR` on a directory)
+- `unlink` non-directories (`EISDIR` on a directory; `EPERM` on `/`)
+- `rename` of `/` is `EPERM`
 - `find` exact basename under cwd; skip symlink dirs; visited-inode set for hardlinks

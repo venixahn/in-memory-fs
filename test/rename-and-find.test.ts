@@ -52,6 +52,16 @@ describe('rename, unlink, and find', function () {
     }).toThrowError('EISDIR')
   })
 
+  it('throws EPERM when unlinking or renaming /', function () {
+    const sh = connect(createFileSystem())
+    expect(function () {
+      sh.unlink('/')
+    }).toThrowError('EPERM')
+    expect(function () {
+      sh.rename('/', 'root')
+    }).toThrowError('EPERM')
+  })
+
   it('finds every exact basename under cwd', function () {
     const sh = connect(createFileSystem())
     sh.mkdir('school').creat('school/notes')
