@@ -7,7 +7,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const config = defineConfig({
   resolve: {
     alias: {
-      '@': path.join(projectRoot, 'src'),
+      '@app': path.join(projectRoot, 'src'),
     },
   },
   test: {

@@ -4,11 +4,11 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 
 ## Status
 
-**On `feature/navigate-directories`.** A new process reports `getcwd()` as `/`. `mkdir` / `chdir` are next.
+**Navigate (`getcwd`) is on `develop`.** Next story: `feature/file-contents`. `mkdir` / `chdir` / `readdir` / `rmdir` are still open.
 
-| Done                         | In progress     | Next                                 |
-| ---------------------------- | --------------- | ------------------------------------ |
-| Quality harness on `develop` | `getcwd` is `/` | `mkdir`, `chdir`, `readdir`, `rmdir` |
+| Done            | In progress | Next                             |
+| --------------- | ----------- | -------------------------------- |
+| `getcwd` is `/` | —           | `creat`, `writeFile`, `readFile` |
 
 Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md).
 

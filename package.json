@@ -13,12 +13,12 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "test": "node scripts/vitest.mjs run",
     "test:watch": "node scripts/vitest.mjs",
     "coverage": "node scripts/vitest.mjs run --coverage",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit -p tsconfig.eslint.json",
+    "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "prepare": "husky"
   },

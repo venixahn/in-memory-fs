@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** `develop` has the quality harness. `feature/navigate-directories` is in progress: a new process `getcwd()` is `/`. Next: mkdir, chdir, readdir, rmdir.
+**Status:** `feature/navigate-directories` merged to `develop` (`getcwd` is `/`). Next: `feature/file-contents`. `mkdir` / `chdir` / `readdir` / `rmdir` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 
@@ -77,7 +77,7 @@ describe('navigate directories', function () {
 - No semicolons. Single quotes. Prettier is the formatter.
 - Named exports at the **bottom** of a file (`export { createFileSystem }`, `export type { Shell }`).
 - Tests use `function () {}`, not arrows (ESLint error).
-- Imports from source use the `@/` alias (`import { connect } from '@/index.js'`), not `../src/...`.
+- Imports from source use the `@app/` alias (`import { connect } from '@app/index.ts'`), not `../src/...`.
 
 ## Git Flow
 

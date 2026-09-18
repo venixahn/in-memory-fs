@@ -22,7 +22,7 @@ const config = tseslint.config(
     extends: [...tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.eslint.json',
+        project: './tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
       globals: {
@@ -36,7 +36,7 @@ const config = tseslint.config(
           patterns: [
             {
               group: ['./*', '../*'],
-              message: 'Use the @/ alias',
+              message: 'Use the @app/ alias',
             },
           ],
         },

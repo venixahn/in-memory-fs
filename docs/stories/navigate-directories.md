@@ -1,6 +1,6 @@
 # Navigate directories
 
-Branch: `feature/navigate-directories`. Tests: `test/navigate-directories.test.ts`.
+Merged to `develop`. Tests: `test/navigate-directories.test.ts`.
 
 - Done: a new process starts at `/` (`getcwd`).
-- Next: `mkdir`, `chdir`, `readdir`, `rmdir` (prompt walkthrough).
+- Not in this merge: `mkdir`, `chdir`, `readdir`, `rmdir`.
