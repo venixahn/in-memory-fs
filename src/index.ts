@@ -33,6 +33,8 @@ type Shell = {
   chdir(path: string): Shell
   mkdir(path: string): Shell
   rmdir(path: string): Shell
+  unlink(path: string): Shell
+  rename(from: string, to: string): Shell
   creat(path: string): Shell
   link(existing: string, path: string): Shell
   symlink(target: string, path: string): Shell
@@ -41,6 +43,7 @@ type Shell = {
   readlink(path: string): string
   lstat(path: string): Stat
   stat(path: string): Stat
+  find(basename: string): string[]
 }
 
 const createDirInode = (): Inode => ({
@@ -202,6 +205,61 @@ function removeDir (cwd: Dentry, path: string): void {
   dentry.parent.inode.children.delete(dentry.name)
 }
 
+function unlinkAt (cwd: Dentry, path: string): void {
+  const dentry = walkFrom(cwd, path, false, 0)
+  if (dentry.parent === dentry) {
+    throw new FsError('EPERM')
+  }
+  if (dentry.inode.kind === 'dir') {
+    throw new FsError('EISDIR')
+  }
+  dentry.parent.inode.children.delete(dentry.name)
+}
+
+function renameAt (cwd: Dentry, from: string, to: string): void {
+  const src = walkFrom(cwd, from, false, 0)
+  if (src.parent === src) {
+    throw new FsError('EPERM')
+  }
+  const dest = parentAndName(cwd, to)
+  if (dest.dir.inode.children.has(dest.name)) {
+    throw new FsError('EEXIST')
+  }
+  if (wouldCycle(src.inode, dest.dir)) {
+    throw new FsError('EPERM')
+  }
+  src.parent.inode.children.delete(src.name)
+  src.name = dest.name
+  src.parent = dest.dir
+  dest.dir.inode.children.set(dest.name, src)
+}
+
+function collectNamed (
+  dentry: Dentry,
+  basename: string,
+  seen: Set<Inode>,
+  out: string[],
+): void {
+  if (seen.has(dentry.inode)) {
+    return
+  }
+  seen.add(dentry.inode)
+  for (const child of dentry.inode.children.values()) {
+    if (child.name === basename) {
+      out.push(pathOf(child))
+    }
+    if (child.inode.kind === 'dir') {
+      collectNamed(child, basename, seen, out)
+    }
+  }
+}
+
+const findAt = (cwd: Dentry, basename: string): string[] => {
+  const out: string[] = []
+  collectNamed(cwd, basename, new Set(), out)
+  return out
+}
+
 const chdirTo = (cwd: Dentry, path: string): Dentry => {
   const dentry = walkFrom(cwd, path, true, 0)
   if (dentry.inode.kind !== 'dir') {
@@ -273,6 +331,14 @@ function connect (fs: FileSystem): Shell {
       removeDir(proc.cwd, path)
       return sh
     },
+    unlink (path) {
+      unlinkAt(proc.cwd, path)
+      return sh
+    },
+    rename (from, to) {
+      renameAt(proc.cwd, from, to)
+      return sh
+    },
     creat (path) {
       addChild(proc.cwd, path, createFileInode())
       return sh
@@ -293,6 +359,7 @@ function connect (fs: FileSystem): Shell {
     readlink: (path) => readlinkAt(proc.cwd, path),
     lstat: (path) => lstatAt(proc.cwd, path),
     stat: (path) => statAt(proc.cwd, path),
+    find: (basename) => findAt(proc.cwd, basename),
   }
   return sh
 }

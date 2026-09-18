@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Multi-client](stories/multi-client.md) is merged to `develop`. Next: [Rename, unlink, and find](stories/rename-and-find.md).
+**Status:** [Rename, unlink, and find](stories/rename-and-find.md) is merged to `develop`. Next: [Prompt example](stories/prompt-example.md) on `release/1.0`.
 
 Source of requirements: [task.md](task.md).
 
@@ -63,6 +63,7 @@ Stories:
 5. [Hardlinks](stories/hardlinks.md) (`feature/hardlinks`)
 6. [Multi-client](stories/multi-client.md) (`feature/multi-client`)
 7. [Rename, unlink, and find](stories/rename-and-find.md) (`feature/rename-and-find`)
+8. [Prompt example](stories/prompt-example.md) (`release/1.0`)
 
 ```ts
 describe('navigate directories', function () {

@@ -4,11 +4,11 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 
 ## Status
 
-**Multi-client is on `develop`.** Next story: [Rename, unlink, and find](docs/stories/rename-and-find.md).
+**Core stories are on `develop`.** Next: [Prompt example](docs/stories/prompt-example.md) on `release/1.0`.
 
-| Done                         | In progress | Next                       |
-| ---------------------------- | ----------- | -------------------------- |
-| files, errno, links, clients | —           | `rename`, `unlink`, `find` |
+| Done                                      | In progress | Next               |
+| ----------------------------------------- | ----------- | ------------------ |
+| files, errno, links, clients, rename/find | —           | prompt walkthrough |
 
 Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md). Stories: [docs/stories/](docs/stories/README.md).
 
