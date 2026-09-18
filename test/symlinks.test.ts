@@ -41,7 +41,7 @@ describe('symlinks', function () {
     sh.symlink('loop', 'loop')
     expect(function () {
       sh.readFile('loop')
-    }).toThrowError('ELOOP')
+    }).toThrow('ELOOP')
   })
 
   it('throws EINVAL when readlink targets a non-symlink', function () {
@@ -49,6 +49,6 @@ describe('symlinks', function () {
     sh.creat('notes')
     expect(function () {
       sh.readlink('notes')
-    }).toThrowError('EINVAL')
+    }).toThrow('EINVAL')
   })
 })

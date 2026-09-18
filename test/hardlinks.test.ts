@@ -31,6 +31,6 @@ describe('hardlinks', function () {
     sh.mkdir('school').mkdir('school/homework')
     expect(function () {
       sh.link('school', 'school/homework/loop')
-    }).toThrowError('EPERM')
+    }).toThrow('EPERM')
   })
 })

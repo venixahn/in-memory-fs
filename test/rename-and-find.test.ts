@@ -9,7 +9,7 @@ describe('rename, unlink, and find', function () {
     expect(sh.readFile('todo')).toBe('hi')
     expect(function () {
       sh.readFile('notes')
-    }).toThrowError('ENOENT')
+    }).toThrow('ENOENT')
   })
 
   it('renames a directory across parents', function () {
@@ -25,7 +25,7 @@ describe('rename, unlink, and find', function () {
     sh.creat('notes').creat('todo')
     expect(function () {
       sh.rename('notes', 'todo')
-    }).toThrowError('EEXIST')
+    }).toThrow('EEXIST')
   })
 
   it('refuses to rename a directory under itself', function () {
@@ -33,7 +33,7 @@ describe('rename, unlink, and find', function () {
     sh.mkdir('school').mkdir('school/homework')
     expect(function () {
       sh.rename('school', 'school/homework/loop')
-    }).toThrowError('EPERM')
+    }).toThrow('EPERM')
   })
 
   it('unlinks a file', function () {
@@ -41,7 +41,7 @@ describe('rename, unlink, and find', function () {
     sh.creat('notes').unlink('notes')
     expect(function () {
       sh.readFile('notes')
-    }).toThrowError('ENOENT')
+    }).toThrow('ENOENT')
   })
 
   it('throws EISDIR when unlinking a directory', function () {
@@ -49,17 +49,17 @@ describe('rename, unlink, and find', function () {
     sh.mkdir('school')
     expect(function () {
       sh.unlink('school')
-    }).toThrowError('EISDIR')
+    }).toThrow('EISDIR')
   })
 
   it('throws EPERM when unlinking or renaming /', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.unlink('/')
-    }).toThrowError('EPERM')
+    }).toThrow('EPERM')
     expect(function () {
       sh.rename('/', 'root')
-    }).toThrowError('EPERM')
+    }).toThrow('EPERM')
   })
 
   it('finds every exact basename under cwd', function () {

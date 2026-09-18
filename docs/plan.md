@@ -81,7 +81,7 @@ describe('navigate directories', function () {
 - No semicolons. Single quotes. Wrap at column 80.
 - Space between a function name and its parameter list: `function step (node, part)`.
 - Named exports at the **bottom** of a file (`export { createFileSystem }`, `export type { Shell }`).
-- Small helpers in `src/` are arrow functions. Tests use `function () {}`, not arrows (ESLint error).
+- Small helpers in `src/` are arrow functions. Tests use `function () {}`, not arrows (ESLint error). Tests assert throws with `toThrow`, not `toThrowError`.
 - Imports from tests use the `@app/` alias (`import { connect } from '@app/index.ts'`), not `../src/...`. Files under `src/` import siblings with Node ESM `.js` specifiers so `tsc` can emit.
 
 ## Git Flow

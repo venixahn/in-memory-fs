@@ -30,7 +30,7 @@ describe('multi-client', function () {
     sh.creat('notes')
     expect(function () {
       sh.readdir('notes')
-    }).toThrowError('ENOTDIR')
+    }).toThrow('ENOTDIR')
   })
 
   it('lets 500 shells create names a 501st can list', function () {

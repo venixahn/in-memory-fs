@@ -6,14 +6,14 @@ describe('errors and paths', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.readFile('missing')
-    }).toThrowError('ENOENT')
+    }).toThrow('ENOENT')
   })
 
   it('throws ENOENT when writing a missing file', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.writeFile('missing', 'hi')
-    }).toThrowError('ENOENT')
+    }).toThrow('ENOENT')
   })
 
   it('throws EEXIST when creating a name that already exists', function () {
@@ -21,7 +21,7 @@ describe('errors and paths', function () {
     sh.creat('notes')
     expect(function () {
       sh.creat('notes')
-    }).toThrowError('EEXIST')
+    }).toThrow('EEXIST')
   })
 
   it('reads a file through an absolute path', function () {
@@ -49,7 +49,7 @@ describe('errors and paths', function () {
     sh.creat('notes')
     expect(function () {
       sh.readFile('notes/page')
-    }).toThrowError('ENOTDIR')
+    }).toThrow('ENOTDIR')
   })
 
   it('throws ENOTEMPTY for a non-empty directory', function () {
@@ -57,7 +57,7 @@ describe('errors and paths', function () {
     sh.mkdir('school').creat('school/notes')
     expect(function () {
       sh.rmdir('school')
-    }).toThrowError('ENOTEMPTY')
+    }).toThrow('ENOTEMPTY')
   })
 
   it('reports getcwd after chdir and reads / from a nested cwd', function () {
@@ -78,17 +78,17 @@ describe('errors and paths', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.creat('/')
-    }).toThrowError('EINVAL')
+    }).toThrow('EINVAL')
   })
 
   it('throws EINVAL when creating . or ..', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.creat('.')
-    }).toThrowError('EINVAL')
+    }).toThrow('EINVAL')
     expect(function () {
       sh.creat('..')
-    }).toThrowError('EINVAL')
+    }).toThrow('EINVAL')
   })
 
   it('throws ENOTDIR when creating under a file', function () {
@@ -96,14 +96,14 @@ describe('errors and paths', function () {
     sh.creat('notes')
     expect(function () {
       sh.creat('notes/page')
-    }).toThrowError('ENOTDIR')
+    }).toThrow('ENOTDIR')
   })
 
   it('throws EPERM when removing /', function () {
     const sh = connect(createFileSystem())
     expect(function () {
       sh.rmdir('/')
-    }).toThrowError('EPERM')
+    }).toThrow('EPERM')
   })
 
   it('throws ENOTDIR when rmdir or chdir target a file', function () {
@@ -111,10 +111,10 @@ describe('errors and paths', function () {
     sh.creat('notes')
     expect(function () {
       sh.rmdir('notes')
-    }).toThrowError('ENOTDIR')
+    }).toThrow('ENOTDIR')
     expect(function () {
       sh.chdir('notes')
-    }).toThrowError('ENOTDIR')
+    }).toThrow('ENOTDIR')
   })
 
   it('throws EISDIR when reading or writing a directory', function () {
@@ -122,10 +122,10 @@ describe('errors and paths', function () {
     sh.mkdir('school')
     expect(function () {
       sh.readFile('school')
-    }).toThrowError('EISDIR')
+    }).toThrow('EISDIR')
     expect(function () {
       sh.writeFile('school', 'hi')
-    }).toThrowError('EISDIR')
+    }).toThrow('EISDIR')
   })
 
   it('removes an empty directory', function () {
@@ -133,6 +133,6 @@ describe('errors and paths', function () {
     sh.mkdir('school').rmdir('school')
     expect(function () {
       sh.chdir('school')
-    }).toThrowError('ENOENT')
+    }).toThrow('ENOENT')
   })
 })
