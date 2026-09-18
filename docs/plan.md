@@ -2,7 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** `feature/navigate-directories` merged to `develop` (`getcwd` is `/`). Next: `feature/file-contents`. `mkdir` / `chdir` / `readdir` / `rmdir` are still outstanding.
+**Status:** `feature/file-contents` is in progress (`creat`, `writeFile`, `readFile`). `getcwd` is on `develop`. `mkdir` / `chdir` / `readdir` / `rmdir` are still outstanding.
 
 Source of requirements: [task.md](task.md).
 

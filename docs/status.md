@@ -4,7 +4,7 @@
 | -------------------- | ------------------------------ | -------------------------------------------------------------- |
 | Quality harness      | `develop`                      | done                                                           |
 | Navigate directories | `feature/navigate-directories` | merged (`getcwd` is `/`; mkdir/chdir/readdir/rmdir still open) |
-| File contents        | `feature/file-contents`        | next                                                           |
+| File contents        | `feature/file-contents`        | in progress (`creat`, `writeFile`, `readFile`)                 |
 | Errors and paths     | `feature/error-and-paths`      | not started                                                    |
 | Symlinks             | `feature/symlinks`             | not started                                                    |
 | Hardlinks            | `feature/hardlinks`            | not started                                                    |
