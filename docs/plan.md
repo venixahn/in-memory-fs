@@ -26,7 +26,7 @@ sh.chdir('school').writeFile('notes', 'hi')
 ## Stack and quality gates
 
 - ESM, `strict: true`, modern Node. **Zero runtime dependencies.**
-- **Vitest** tests in BDD style (`describe` / `it`). **Istanbul** via `@vitest/coverage-istanbul`. Fail below **90%** statements/branches/functions/lines on `src/` (exclude `demo.ts`).
+- **Vitest** tests in BDD style (`describe` / `it`). The verbose reporter prints every case, then Istanbul coverage. Fail below **90%** statements/branches/functions/lines on `src/` (exclude `demo.ts`).
 - **ESLint 9** type-checked + **Prettier**. **Complexity is an error** on `src/` (tests exempt). **Husky**: pre-commit lint-staged; pre-push `tsc`, ESLint, tests.
 
 Complexity limits (ESLint errors):

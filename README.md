@@ -30,10 +30,9 @@ npm install
 ```bash
 npm test
 npm run test:watch
-npm run coverage
 npm run lint
 npm run typecheck
 npm run build
 ```
 
-Coverage must stay at or above 90% on `src/` once implementation exists. ESLint treats high cyclomatic and cognitive complexity as errors.
+`npm test` prints every case and an Istanbul coverage table. Coverage must stay at or above 90% on `src/`. ESLint treats high cyclomatic and cognitive complexity as errors.

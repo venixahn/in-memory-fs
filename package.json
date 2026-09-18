@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "node scripts/vitest.mjs run",
+    "test": "node scripts/vitest.mjs run --coverage",
     "test:watch": "node scripts/vitest.mjs",
     "coverage": "node scripts/vitest.mjs run --coverage",
     "lint": "eslint .",

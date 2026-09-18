@@ -13,6 +13,7 @@ const config = defineConfig({
   test: {
     environment: 'node',
     passWithNoTests: true,
+    reporters: ['verbose'],
     coverage: {
       provider: 'istanbul',
       include: ['src/**/*.ts'],
