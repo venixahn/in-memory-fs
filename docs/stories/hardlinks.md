@@ -1,6 +1,6 @@
 # Hardlinks
 
-In progress on `feature/hardlinks`.
+Merged to `develop`.
 
 - Tests: [test/hardlinks.test.ts](../../test/hardlinks.test.ts)
 - Implementation: [src/index.ts](../../src/index.ts)
@@ -10,7 +10,7 @@ In progress on `feature/hardlinks`.
 - Previous: [Symlinks](symlinks.md)
 - Next: [Multi-client](multi-client.md)
 
-Covered:
+Done:
 
 - File hardlinks share inode contents
 - Directory hardlinks share children; `getcwd` uses the name you `chdir`'d through
