@@ -2,8 +2,7 @@
 
 Living plan. Update this file whenever the approach changes.
 
-**Status:** [Prompt example](stories/prompt-example.md) is merged to
-`develop`. Next: [Release 1.0](stories/release.md).
+**Status:** [Release 1.0](stories/release.md) is merged to `master`.
 
 Source of requirements: [task.md](task.md).
 

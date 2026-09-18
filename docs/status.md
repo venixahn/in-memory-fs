@@ -11,6 +11,6 @@
 | [Multi-client](stories/multi-client.md)                 | `feature/multi-client`         | merged                                                           |
 | [Rename, unlink, and find](stories/rename-and-find.md)  | `feature/rename-and-find`      | merged (`EPERM` on `unlink`/`rename` of `/`)                     |
 | [Prompt example](stories/prompt-example.md)             | `feature/prompt-example`       | merged (assignment walkthrough + `npm run demo`)                 |
-| [Release 1.0](stories/release.md)                       | `release/1.0`                  | next                                                             |
+| [Release 1.0](stories/release.md)                       | `release/1.0`                  | merged to `master`                                               |
 
 See [plan.md](plan.md) and [stories/](stories/README.md). Prompt: [task.md](task.md).

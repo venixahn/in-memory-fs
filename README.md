@@ -1,3 +1,11 @@
+<p align="center">
+  <img
+    src="assets/banner.jpg"
+    alt="in-memory-filesystem: a simple in-memory file system in JavaScript"
+    width="100%"
+  />
+</p>
+
 # in-memory-fs
 
 Simplified Unix-like filesystem that lives entirely in memory. No disk.
@@ -5,26 +13,6 @@ Simplified Unix-like filesystem that lives entirely in memory. No disk.
 One filesystem, many shells. Directories are inodes with a name map;
 hardlinks are extra names on the same inode; each `connect` keeps its own
 cwd.
-
-## Status
-
-**Stories are on `develop`.** Next: [Release 1.0](docs/stories/release.md)
-on `release/1.0`.
-
-| Done                                                   | In progress | Next    |
-| ------------------------------------------------------ | ----------- | ------- |
-| files, errno, links, clients, rename/find, walkthrough | —           | release |
-
-Design: [docs/plan.md](docs/plan.md). Assignment: [docs/task.md](docs/task.md).
-Board: [docs/status.md](docs/status.md).
-Stories: [docs/stories/](docs/stories/README.md).
-
-```mermaid
-flowchart TB
-  Proc["Process handle: cwd dentry"] --> VFS
-  VFS --> DentryTree["dentry: name, parent, inode"]
-  VFS --> InodeTable["inode table"]
-```
 
 ## Usage
 
@@ -65,6 +53,8 @@ Many shells can share one filesystem. That is 500 clients on one VFS, not
 npm install
 ```
 
+Node 20 or newer.
+
 ## Commands
 
 ```bash
@@ -82,3 +72,24 @@ cyclomatic and cognitive complexity as errors.
 
 `npm run demo` builds, then prints the assignment's school/homework
 walkthrough.
+
+## Design
+
+```mermaid
+flowchart TB
+  Proc["Process handle: cwd dentry"] --> VFS
+  VFS --> DentryTree["dentry: name, parent, inode"]
+  VFS --> InodeTable["inode table"]
+```
+
+Design notes: [docs/plan.md](docs/plan.md). Assignment:
+[docs/task.md](docs/task.md). Board: [docs/status.md](docs/status.md).
+Stories: [docs/stories/](docs/stories/README.md).
+
+## Status
+
+**Release 1.0 is on `master`.**
+
+| Done                                                   | In progress | Next |
+| ------------------------------------------------------ | ----------- | ---- |
+| files, errno, links, clients, rename/find, walkthrough | —           | —    |

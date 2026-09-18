@@ -1,3 +1,6 @@
+// In-memory Unix-like VFS. Names live on dentries. File bytes, directory
+// children, and symlink targets live on inodes. Hardlinks are extra
+// dentries on the same inode. connect(fs) is a process with its own cwd.
 import { FsError } from './error.js'
 import { joinPath, splitPath } from './path.js'
 
